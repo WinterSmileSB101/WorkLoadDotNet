@@ -1,0 +1,246 @@
+﻿<Window x:Class="EC_WorkLoad.WorkLoadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EC_WorkLoad"
+        xmlns:res="clr-namespace:EC_WorkLoad.Properties"
+        xmlns:localConverter="clr-namespace:EC_WorkLoad.Converters"
+        mc:Ignorable="d"
+        Title="WorkLoadWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <ResourceDictionary>
+            <localConverter:BitMapToImageSourceConverter x:Key="BitMapToImageSourceConverter"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="99*"/>
+            <RowDefinition Height="706*"/>
+        </Grid.RowDefinitions>
+
+        <!--导航栏-->
+        <Grid Grid.Row="0">
+            <materialDesign:ColorZone Mode="PrimaryMid"
+                                      Name="NavBar"
+                                      Height="55"
+                                      MouseLeftButtonDown="NavBar_MouseLeftButtonDown"
+                                      materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                <Grid>
+                    <Polygon Points="780,0 1100,0 1100,65 723,65 "
+                             StrokeThickness="1">
+                        <Polygon.Fill>
+                            <SolidColorBrush Color="#3448A1" />
+                        </Polygon.Fill>
+                    </Polygon>
+
+                    <Polygon Points="700,0 780,0 740,50 "
+                             StrokeThickness="1">
+                        <Polygon.Fill>
+                            <SolidColorBrush Color="#3E58C9" />
+                        </Polygon.Fill>
+                    </Polygon>
+
+                    <Polygon Points="0,0 700,0 756,65 0,65"
+                             StrokeThickness="1">
+                        <Polygon.Fill>
+                            <SolidColorBrush Color="#1C93EC" />
+                        </Polygon.Fill>
+                    </Polygon>
+
+                    <Ellipse Cursor="Hand"
+                             HorizontalAlignment="Left"
+                             Margin="25,5"
+                             Width="40"
+                             Height="40"
+                             Name="Avator"
+                             MouseLeftButtonDown="Avator_Click">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding Source={x:Static res:Resources.defaultAvator},
+                                Converter={StaticResource BitMapToImageSourceConverter}}"
+                                        Stretch="Fill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    
+                    <!--中间操作按钮-->
+                    <Grid HorizontalAlignment="Center"
+                          Width="200">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button Width="60"
+                                    Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="TodoWork">
+                                <Viewbox Width="34" Height="34">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M15,20A1,1 0 0,0 14,19H13V17H17A2,2 0 0,0 19,15V5A2,2 0 0,0 17,3H7A2,2 0 0,0 5,5V15A2,2 0 0,0 7,17H11V19H10A1,1 0 0,0 9,20H2V22H9A1,1 0 0,0 10,23H14A1,1 0 0,0 15,22H22V20H15M7,15V5H17V15H7M8,6.89L11.56,10.45L8,14H10.53L13.45,11.08C13.78,10.74 13.78,10.18 13.45,9.82L10.5,6.89H8M16,12.22H13.33V14H16V12.22Z" 
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Width="60"
+                                    Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="DoneWork">
+                                <Viewbox Width="34" Height="34">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M17,3A2,2 0 0,1 19,5V15A2,2 0 0,1 17,17H13V19H14A1,1 0 0,1 15,20H22V22H15A1,1 0 0,1 14,23H10A1,1 0 0,1 9,22H2V20H9A1,1 0 0,1 10,19H11V17H7A2,2 0 0,1 5,15V5A2,2 0 0,1 7,3H17M7,7L11,11L7,15H9.85L13.13,11.72C13.5,11.33 13.5,10.7 13.13,10.3L9.83,7H7M17,13H14V15H17V13Z"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Button Width="60"
+                                    Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="LogHistory">
+                                <Viewbox Width="34" Height="34">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    
+                    <!--右边按钮-->
+                    <Grid HorizontalAlignment="Right"
+                          Width="150">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="MenuBtn"
+                                    Click="NavBarBtn_Click">
+                                <Viewbox Width="25"
+                                         Height="25">
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Path Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="MinSizeBtn"
+                                    Click="NavBarBtn_Click">
+                                <Viewbox Width="25"
+                                         Height="25">
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Path Data="M20,14H4V10H20"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Button Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Padding="0"
+                                    Name="FullScreenBtn"
+                                    Click="NavBarBtn_Click">
+                                <Viewbox Width="25"
+                                         Height="25">
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Path Data="M4,4H20V20H4V4M6,8V18H18V8H6Z"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <Button Height="60"
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    Command="{Binding CloseCommand}"
+                                    Padding="0"
+                                    Name="CloseBtn"
+                                    Click="NavBarBtn_Click">
+                                <Viewbox Width="25"
+                                         Height="25">
+                                    <Canvas Width="24"
+                                            Height="24">
+                                        <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                                              Fill="White" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </Grid>
+                        
+                    </Grid>
+                </Grid>
+                
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="157*"/>
+                <ColumnDefinition Width="157*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--未完成任务列表，可切换 今日/所有/指定日期 任务-->
+            <Grid Grid.Column="0">
+
+            </Grid>
+            
+            <!--正在做的任务列表-->
+            <Grid Grid.Column="1">
+                
+            </Grid>
+
+            <!--点击任务之后的详情-->
+            <Grid Grid.Column="2">
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
